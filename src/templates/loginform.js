@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import LoginButton from "../components/login"
+import LoginButton from "../components/login";
 
-function LoginForm() {
+function LoginForm({ onSuccess, onFailure }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -9,7 +9,6 @@ function LoginForm() {
     <div className="container d-flex justify-content-center align-items-center" style={{ height: '100vh' }}>
       <div className="card p-4 shadow-sm" style={{ maxWidth: '400px', width: '100%' }}>
         <h3 className="text-center mb-4">LOGIN</h3>
-
         <form>
           <div className="mb-3">
             <label htmlFor="email" className="form-label">Email address</label>
@@ -39,8 +38,8 @@ function LoginForm() {
 
           <div className="d-grid gap-2">
             <button type="submit" className="btn btn-primary">Login</button>
-            <hr/>
-            <LoginButton />
+            <hr />
+            <LoginButton onSuccess={onSuccess} onFailure={onFailure} />
           </div>
         </form>
       </div>
